@@ -13,9 +13,7 @@ class Geet
   end
 
   def help
-  	puts <<-HELP
-  	get (user, repo, commits, contents)
-  	HELP
+  	puts "get (user, repo, commits, contents)"
   end
 end
 
