@@ -8,11 +8,32 @@ class Geet
   	else
   		if args[0] == "help"
   			help
+  		elsif args[0] == "get"
+  			puts get(args[1], args[2])
   		end
   	end
   end
 
+  def get(type, data)
+  	if type == "user"
+  		format(Octokit.user(data), :user)
+  	elsif type == "repo"
+  		format(Octokit.repo(data), :repo)
+  	elsif type == "comm"
+  		format(Octokit.commits(data), :comm)
+  	elsif type == "cont"
+  		puts "Not implemented...yet."
+  		exit
+  	end
+  end
+
+  def format(data, type)
+    # Implement
+  end
+
   def help
+  	puts "Geet Help"
+  	puts "---------"
   	puts "get (user, repo, commits, contents)"
   end
 end
